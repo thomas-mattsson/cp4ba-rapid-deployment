@@ -35,7 +35,7 @@ else
 fi
 
 echo
-echo -e "\x1B[1mThis script CREATES all needed CP4BA databases (assumes Db2u is running in project ${oracleOnOcpProjectName}). \n \x1B[0m"
+echo -e "\x1B[1mThis script CREATES all needed CP4BA databases. \n \x1B[0m"
 
 printf "Do you want to continue (Yes/No, default: No): "
 read -rp "" ans
@@ -52,55 +52,55 @@ case "$ans" in
     ;;
 esac
 
-oracleCon="sys/${oracleSysUserPassword}@//${oracleHostName}:${oraclePortNumber}/${oracleDb} as sysdba"
+oracleCon="sys/${oracleSysUserPassword}@//${oracleHostName}:${oraclePortNumber}/${oracleDb}"
 
 echo
 echo "Creating database ${oracleUmsdbName}..."
-. createUMSDB.sh ${oracleUmsdbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createUMSDB.sh ${oracleUmsdbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleIcndbName}..."
-. createICNDB.sh ${oracleIcndbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createICNDB.sh ${oracleIcndbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleDevos1Name}..."
-. createOSDB.sh ${oracleDevos1Name} ${oracleCP4BAUsersPw} ${oracleCon}
+. createOSDB.sh ${oracleDevos1Name} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleAeosName}..."
-. createOSDB.sh ${oracleAeosName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createOSDB.sh ${oracleAeosName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
   
 echo
 echo "Creating database ${oracleBawDocsName}..."
-. createOSDB.sh ${oracleBawDocsName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createOSDB.sh ${oracleBawDocsName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleBawDosName}..."
-. createOSDB.sh ${oracleBawDosName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createOSDB.sh ${oracleBawDosName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleBawTosName}..."
-. createOSDB.sh ${oracleBawTosName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createOSDB.sh ${oracleBawTosName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleBawDbName}..."
-. createBAWDB.sh ${oracleBawDbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createBAWDB.sh ${oracleBawDbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleAppdbName}..."
-. createAPPDB.sh ${oracleAppdbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createAPPDB.sh ${oracleAppdbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleAedbName}..."
-. createAPPDB.sh ${oracleAedbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createAPPDB.sh ${oracleAedbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleBasdbName}..."
-. createBASDB.sh ${oracleBasdbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createBASDB.sh ${oracleBasdbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Creating database ${oracleGcddbName}..."
-. createGCDDB.sh ${oracleGcddbName} ${oracleCP4BAUsersPw} ${oracleCon}
+. createGCDDB.sh ${oracleGcddbName} ${oracleCP4BAUsersPw} ${oracleCon} ${oracleDatafileBase}
 
 echo
 echo "Done. Exiting..."

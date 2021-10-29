@@ -16,9 +16,9 @@ con=$3
 
 echo "*** Creating DB user named: ${dbuser} ***"
 
-sqlplus ${con} <<EOF
+sqlplus ${con} as sysdba <<EOF
 -- create a new user
-CREATE USER ${dbuser} IDENTIFIED BY AUTHORING_USER_PASSW0RD;
+CREATE USER ${dbuser} IDENTIFIED BY ${dbpassword};
 
 -- allow the user to connect to the database
 grant connect to ${dbuser};

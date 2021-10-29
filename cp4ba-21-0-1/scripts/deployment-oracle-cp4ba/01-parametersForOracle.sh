@@ -47,11 +47,14 @@ oracleServiceName=REQUIRED
 # Oracle JDBC URL (generated)
 oracleJDBCUrl=jdbc:oracle:thin:@//${oracleHostName}:${oraclePortNumber}/${oracleServiceName}
 
+# Oracle base directory for tablespace datafiles (for instance /opt/oracle/oradata/<SID>/<DB>/). Leaving empty for default directory
+oracleDatafileBase=
+
 # Oracle connection URL (generated)
-oracleConnectionUrl=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${oracleHostName})(PORT=${oraclePortNumber}))(CONNECT_DATA=(SERVICE_NAME=${oracleServiceName}))))
+oracleConnectionUrl="(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${oracleHostName})(PORT=${oraclePortNumber}))(CONNECT_DATA=(SERVICE_NAME=${oracleServiceName}))))"
 
 # Oracle connection URL with wallet (generated)
-oracleWalletConnectionUrl=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=${oracleHostName})(PORT=${oraclePortNumber}))(CONNECT_DATA=(SERVICE_NAME=${oracleServiceName}))(SECURITY=(SSL_SERVER_DN_MATCH=FALSE)(MY_WALLET_DIRECTORY=/shared/resources/oracle/wallet)))
+oracleWalletConnectionUrl="(DESCRIPTION=(ADDRESS=(PROTOCOL=tcps)(HOST=${oracleHostName})(PORT=${oraclePortNumber}))(CONNECT_DATA=(SERVICE_NAME=${oracleServiceName}))(SECURITY=(SSL_SERVER_DN_MATCH=FALSE)(MY_WALLET_DIRECTORY=/shared/resources/oracle/wallet)))"
 
 # Oracle driver files
 oracleDriverFile=ojdbc8.jar

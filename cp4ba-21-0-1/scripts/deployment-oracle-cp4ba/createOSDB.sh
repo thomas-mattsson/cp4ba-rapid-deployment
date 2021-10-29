@@ -13,21 +13,18 @@
 dbuser=$1
 dbpassword=$2
 con=$3
-# dbpath=$3
-# dbtuning=$4
-# dbstopaths=$3
+oracleDatafileBase=$4
 
 echo "*** Creating DB user named: ${dbuser} ***"
 
-sqlplus ${con} <<EOF
-# https://www.ibm.com/docs/en/filenet-p8-platform/5.5.x?topic=accounts-creating-content-platform-engine-database-user-oracle
-CREATE USER ${dbuser} BY ${dbpassword};
+sqlplus ${con} as sysdba <<EOF
+-- https://www.ibm.com/docs/en/filenet-p8-platform/5.5.x?topic=accounts-creating-content-platform-engine-database-user-oracle
+CREATE USER ${dbuser} IDENTIFIED BY ${dbpassword};
 
 grant create session to ${dbuser};
 grant create TABLE to ${dbuser};
 grant create VIEW to ${dbuser};
 grant create SEQUENCE to ${dbuser};
-grant alter user set QUOTA UNLIMITED on all table spaces used by db user to ${dbuser};
 grant select on pending_trans$ to ${dbuser};
 grant select on dba_2pc_pending to ${dbuser};
 grant select on dba_pending_transactions to ${dbuser};
@@ -36,9 +33,12 @@ grant select on product_component_version to ${dbuser};
 grant select on USER_INDEXES to ${dbuser};
 grant execute on dbms_xa to ${dbuser};
 
-# https://www.ibm.com/docs/en/filenet-p8-platform/5.5.x?topic=vtosiifp-creating-oracle-table-spaces-content-platform-engine-object-store
-CREATE TABLESPACE ${dbuser}_DATA_TBS 400M;
-CREATE TEMPORARY TABLESPACE ${dbuser}_TMP_TBS 2G;
+-- https://www.ibm.com/docs/en/filenet-p8-platform/5.5.x?topic=vtosiifp-creating-oracle-table-spaces-content-platform-engine-object-store
+
+CREATE TABLESPACE ${dbuser}_DATA_TBS DATAFILE '${oracleDatafileBase}${dbuser}_data_tbs.dbf' SIZE 400M;
+CREATE TEMPORARY TABLESPACE ${dbuser}_TMP_TBS TEMPFILE '${oracleDatafileBase}${dbuser}_tmp_tbs.dbf' SIZE 2G;
+
+alter user ${dbuser} quota unlimited on ${dbuser}_DATA_TBS;
 EOF
 
 echo "*** Done creating DB user: ${dbuser} ***"

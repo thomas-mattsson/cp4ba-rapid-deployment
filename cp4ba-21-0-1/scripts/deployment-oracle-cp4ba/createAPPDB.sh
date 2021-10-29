@@ -16,7 +16,7 @@ con=$3
 
 echo "*** Creating DB user named: ${dbuser} ***"
 
-sqlplus ${con} <<EOF
+sqlplus ${con} as sysdba <<EOF
 -- create a new user
 CREATE USER ${dbuser} IDENTIFIED BY ${dbpassword} ;
 
