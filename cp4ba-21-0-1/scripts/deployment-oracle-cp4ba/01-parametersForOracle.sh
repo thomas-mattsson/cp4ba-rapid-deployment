@@ -64,7 +64,7 @@ oracleDriverFile=ojdbc8.jar
 # Selected CP4BA template to use for deployment, for example ibm_cp4a_cr_template.101.ent.ClientOnboardingDemo.Oracle.yaml
 #   Available templates:
 #     ibm_cp4a_cr_template.101.ent.ClientOnboardingDemo.Oracle.yaml
-cp4baTemplateToUse=ibm_cp4a_cr_template.101.ent.ClientOnboardingDemo.Oracle.yaml
+cp4baTemplateToUse=ibm_cp4a_cr_template.101.enterprise.oracle.yaml
 
 # CP4BA Database Name information
 oracleUmsdbName=UMSDB
