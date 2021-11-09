@@ -56,6 +56,13 @@ else
    exit 0
 fi
 
+if [ -z "$(ls -A jdbc/oracle)" ]; then
+  echo "Directory jdbc/oracle is empty. Please add oracle jdbc drivers to use."
+  echo "Typically ojdbc8.jar and orai18n.jar should be there"
+  echo
+  exit 0
+fi
+
 echo
 echo -e "\x1B[1mThis script PREPARES and optionaly CREATES the CP4BA deployment using template ${cp4baTemplateToUse} in project ${cp4baProjectName}. \n \x1B[0m"
 
