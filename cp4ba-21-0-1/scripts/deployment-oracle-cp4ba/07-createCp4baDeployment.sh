@@ -56,7 +56,7 @@ else
    exit 0
 fi
 
-if [ -z "$(ls -A jdbc/oracle)" ]; then
+if [ -z "$(ls jdbc/oracle)" ]; then
   echo "Directory jdbc/oracle is empty. Please add oracle jdbc drivers to use."
   echo "Typically ojdbc8.jar and orai18n.jar should be there"
   echo
