@@ -124,8 +124,19 @@ done
 echo
 echo "Preparing the CP4BA secrets..."
 cp secrets.template.yaml secrets.yaml
-sed -i.bak "s|db2AdminUserName|$db2AdminUserName|g" secrets.yaml
-sed -i.bak "s|db2AdminUserPassword|$db2AdminUserPassword|g" secrets.yaml
+sed -i.bak "s|oracleUmsdbName|$oracleUmsdbName|g" secrets.yaml
+sed -i.bak "s|oracleIcndbName|$oracleIcndbName|g" secrets.yaml
+sed -i.bak "s|oracleDevos1Name|$oracleDevos1Name|g" secrets.yaml
+sed -i.bak "s|oracleAeosName|$oracleAeosName|g" secrets.yaml
+sed -i.bak "s|oracleBawDocsName|$oracleBawDocsName|g" secrets.yaml
+sed -i.bak "s|oracleBawTosName|$oracleBawTosName|g" secrets.yaml
+sed -i.bak "s|oracleBawDosName|$oracleBawDosName|g" secrets.yaml
+sed -i.bak "s|oracleBawDbName|$oracleBawDbName|g" secrets.yaml
+sed -i.bak "s|oracleAppdbName|$oracleAppdbName|g" secrets.yaml
+sed -i.bak "s|oracleAedbName|$oracleAedbName|g" secrets.yaml
+sed -i.bak "s|oracleBasdbName|$oracleBasdbName|g" secrets.yaml
+sed -i.bak "s|oracleGcddbName|$oracleGcddbName|g" secrets.yaml
+sed -i.bak "s|oracleCP4BAUsersPw|$oracleCP4BAUsersPw|g" secrets.yaml
 sed -i.bak "s|cp4baAdminName|$cp4baAdminName|g" secrets.yaml
 sed -i.bak "s|cp4baAdminPassword|$cp4baAdminPassword|g" secrets.yaml
 sed -i.bak "s|cp4baUmsAdminName|$cp4baUmsAdminName|g" secrets.yaml
