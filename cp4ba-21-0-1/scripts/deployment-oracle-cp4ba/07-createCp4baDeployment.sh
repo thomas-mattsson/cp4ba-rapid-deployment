@@ -63,6 +63,13 @@ if [ -z "$(ls jdbc/oracle)" ]; then
   exit 0
 fi
 
+if [ -z "$(ls jdbc/oracle_node)" ]; then
+  echo "Directory jdbc/oracle_node is empty. Please add Oracle Instant Client library here."
+  echo "See https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=engine-implementing-storage"
+  echo
+  exit 0
+fi
+
 echo
 echo -e "\x1B[1mThis script PREPARES and optionaly CREATES the CP4BA deployment using template ${cp4baTemplateToUse} in project ${cp4baProjectName}. \n \x1B[0m"
 

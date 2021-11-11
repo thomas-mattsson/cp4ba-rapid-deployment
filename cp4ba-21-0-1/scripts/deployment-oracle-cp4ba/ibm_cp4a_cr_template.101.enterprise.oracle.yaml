@@ -231,7 +231,7 @@ spec:
       dc_ums_oauth_port: "oraclePortNumber"
       ## Provide the name of the database for UMS.  For example: "UMSDB"
       dc_ums_oauth_name: "oracleSID"
-      dc_ums_oauth_schema: OAuthDBSchema
+      dc_ums_oauth_schema: "oracleUmsdbName"
       dc_ums_oauth_ssl: false
       dc_ums_oauth_ssl_secret_name:
       ## For "oracle", "sqlserver" and "postgresql" provide the names of the driver files
