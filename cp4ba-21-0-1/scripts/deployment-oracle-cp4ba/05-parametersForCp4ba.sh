@@ -29,10 +29,12 @@ cp4baOcpHostname=REQUIRED
 #   If this secret is not available, leave empty (but remove the value 'REQUIRED') - then self-signed certificates will be used at the routes
 cp4baTlsSecretName=REQUIRED
 
-# Password for CP4BA Admin User (cp4baAdminName name see below), for example passw0rd - see ldif file you applied to LDAP
+# Password for CP4BA Admin User (cp4baAdminName name see below)
+# This is the password for the admin LDAP user
 cp4baAdminPassword=REQUIRED
 
-# Password for UMS Admin User (cp4baUmsAdminName name see below), for example passw0rd
+# Password for UMS Admin User (cp4baUmsAdminName name see below), for example passw0rd.
+# Note that this user should NOT exist in ldap
 cp4baUmsAdminPassword=REQUIRED
 
 # Password for LDAP Admin User (ldapAdminName name see below), for example passw0rd - use the password that you specified when setting up LDAP

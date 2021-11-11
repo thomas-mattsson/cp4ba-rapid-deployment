@@ -529,7 +529,7 @@ spec:
       # If not, follow the instructions in "Completing post-deployment tasks for Business Automation Studio and Application Engine" in the IBM Documentation to add it to the Navigator Administrator role and UMS team server admin group.
       admin_user: "cp4baAdminName"
       ## When the database type is Db2 you can set this to false, must be set to true when the database type is Oracle, PostgreSQL.
-      use_custom_jdbc_drivers: false
+      use_custom_jdbc_drivers: true
       database:
         #-----------------------------------------------------------------------
         # Configuration required for configure DB2 for BA Studio playback server
