@@ -44,21 +44,18 @@ ldapAdminPassword=REQUIRED
 ldapServer=REQUIRED
 
 
-
-# -----------------------------------------------------
-# --- Parameters that usually do NOT need an update ---
-# -----------------------------------------------------
-
 # --- If changes are needed here, provide those BEFORE running script 06-prepareCp4baDeployment.sh ---
 
 # --- CP4BA settings ---
+# This user should not be in ldap
+cp4baUmsAdminName=umsadmin
+
+# --- LDAP settings ---
+
 cp4baAdminName=cp4badmin
 cp4baAdminGroup=cp4badmins
 cp4baUsersGroup=cp4bausers
-cp4baUmsAdminName=umsadmin
 cp4baUmsAdminGroup=cn=cp4badmins,dc=example,dc=com
-
-# --- LDAP settings ---
 
 # LDAP name - don't use dashes (-), only use underscores
 ldapName=ldap_custom
