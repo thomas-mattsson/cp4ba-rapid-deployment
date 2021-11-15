@@ -711,6 +711,11 @@ spec:
   ########  IBM FileNet Content Manager initialize configuration  ########
   ########################################################################
   initialize_configuration:
+    ## Create the P8 domain
+    ic_domain_creation:
+      domain_name: "P8DOMAIN"
+      encryption_key: "128"
+    ## LDAP
     ic_ldap_creation:
       ## Administrator user
       ic_ldap_admin_user_name:
