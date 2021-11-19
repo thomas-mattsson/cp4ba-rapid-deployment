@@ -41,6 +41,7 @@ spec:
   ##
   ######################################################################################################################
   shared_configuration:
+    #show_sensitive_log: True
     ## FileNet Content Manager (FNCM) license and possible values are: user, non-production, and production.
     ## This value could be different from the rest of the licenses.
     sc_deployment_fncm_license: "non-production"
@@ -789,8 +790,10 @@ spec:
           dc_os_datasource_name: "AEOS"
           ## The XA datasource
           dc_os_xa_datasource_name: "AEOSXA"
-          #  oc_cpe_obj_store_admin_user_groups:
-          #  - "<Required>" # user name and group name for object store admin, for example, "CEAdmin" or "P8Administrators".  This parameter accepts a list of values.          
+        oc_cpe_obj_store_admin_user_groups:
+        # user name and group name for object store admin, for example, "CEAdmin" or "P8Administrators".  This parameter accepts a list of values.          
+        - "cp4baAdminGroup"
+        - "cp4baAdminName"
   ########################################################################
   ########   IBM Business Automation Workflow Authoring configuration     ########
   ########################################################################
